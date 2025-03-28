@@ -39,7 +39,7 @@
         }
         .slide {
             display: none;
-            width: 300px; /* Ukuran 1:1 */
+            width: 300px;
             height: 300px;
             object-fit: cover;
             border-radius: 10px;
@@ -64,13 +64,22 @@
             font-weight: bold;
             font-size: 18px;
         }
+        /* Custom Audio Button */
+        .audio-button {
+            background: #ff80ab;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <h1>🎉 Happy Birthday, Abel! 🎂</h1>
-    <div>
-        <iframe width="300" height="60" src="https://vocaroo.com/embed/1bSNYeUVBqHn?autoplay=1" frameborder="0" allow="autoplay"></iframe>
-    </div>
+    <button class="audio-button" onclick="playMusic()">▶ Play Music</button>
+    <iframe id="vocaroo" src="https://vocaroo.com/embed/1bSNYeUVBqHn" style="display:none;"></iframe>
     
     <div class="card">
         <p>alamak menuju kepala 2, ntar tap yg di bawah ya wkwkwk</p>
@@ -84,6 +93,12 @@
     
     <!-- Balon Dekorasi -->
     <script>
+        function playMusic() {
+            let vocaroo = document.getElementById("vocaroo");
+            let iframeSrc = vocaroo.src;
+            vocaroo.src = iframeSrc + "?autoplay=1"; // Trik untuk memutar otomatis
+        }
+        
         function showSurprise() {
             alert("Happy Birthday, Bel! 🎉✨ Can’t believe we've been knowing each other for over 4 years now wkwkwk. Thank you for all the laughter, memories, and moments we’ve shared. Wishing you a day as wonderful as you are and a year filled with happiness :]");
             let surpriseMessage = document.createElement("p");
